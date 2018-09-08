@@ -1,0 +1,30 @@
+{
+    "header": "N-Meta",
+    "platforms": [
+        "web",
+        "android",
+        "ios",
+        "windows"
+    ],
+    "environments": [
+        "local",
+        "development",
+        "staging",
+        "production"
+    ],
+    "exceptPaths": [
+        "/js/*",
+        "/css/*",
+        "/images/*",
+        "/favicons/*",
+        "/bootstrap/*",
+        "/dist/*",
+        "/plugins/*"
+    ],
+    "requiredEnvironments": [
+        "local",
+        "development",
+        "staging",
+        "production"
+    ]
+}

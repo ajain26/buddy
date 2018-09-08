@@ -1,0 +1,14 @@
+{
+    "signers": {
+        "access": {
+            "type": "hmac",
+            "algorithm": "hs256",
+            "key":"$JWT_SIGNER_ACCESS_KEY:_"
+        },
+        "reset": {
+            "type": "hmac",
+            "algorithm": "hs256",
+            "key":"$JWT_SIGNER_RESET_KEY:_"
+        }
+    }
+}

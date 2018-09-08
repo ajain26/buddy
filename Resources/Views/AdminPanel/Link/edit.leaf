@@ -1,0 +1,41 @@
+#extend("AdminPanel/Layout/page")
+
+#export("title") { Useful Links }
+
+#export("content-header") {
+    <h1>Useful Links</h1>
+}
+
+#export("breadcrumb") {
+<li class="active">Useful Links</li>
+}
+
+#export("content") {
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        #box:open("Useful Links", "primary")
+        #box:body() {
+
+            #if(link) {
+                #form:open("/admin/backend/links/#(link.id)/edit", "post", "true")
+            } ##else() {
+                #form:open("/admin/backend/links/store", "post", "true")
+            }
+
+            #form:textgroup(fieldset.title, link.title, "", "required")
+            #form:textgroup(fieldset.description, link.description, "", "required")
+            #form:textgroup(fieldset.url, link.url, "", "required")
+
+            #box:footer() {
+                <a href="/admin/backend/links" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right ">
+                    #if(link) { Save } ##else() { Create }
+                </button>
+            }
+        }
+        #form:close()
+        #box:close()
+    </div>
+</div>
+}

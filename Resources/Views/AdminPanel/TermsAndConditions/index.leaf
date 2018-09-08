@@ -1,0 +1,44 @@
+#extend("AdminPanel/Layout/page")
+
+#export("title") { Terms and Conditions }
+
+#export("content-header") {
+<h1>Terms and Conditions</h1>
+}
+
+#export("breadcrumb") {
+<li class="active">Terms and Conditions</li>
+}
+
+#export("content") {
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        #if(termsandconditions) {
+
+            #box:open("Terms and Conditions Details", "primary")
+            #box:body() {
+
+                <p>
+                    #(termsandconditions.description)
+                </p>
+
+                #box:footer() {
+                    <a href="/admin/backend/termsandconditions/#(termsandconditions.id)/edit" class="btn btn btn-primary pull-right">
+                        Edit
+                    </a>
+                }
+            }
+            #form:close()
+            #box:close()
+            } ##else() {
+                <div class="layout horizontal center justified padding-vertical-sm">
+                    <a href="/admin/backend/termsandconditions/create" class="btn btn-primary pull-right">
+                        <span class="fa fa-bank"></span>
+                        <span class="hidden-xs">Create Terms & Conditions</span>
+                    </a>
+                </div>
+            }
+    </div>
+</div>
+}

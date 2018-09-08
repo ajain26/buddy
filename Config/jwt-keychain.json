@@ -1,0 +1,22 @@
+{
+    "apiAccess": {
+        "kid": "access",
+        "secondsToExpire": 31557600,
+    },
+    "resetPassword": {
+        "kid": "reset",
+        "secondsToExpire": 3600
+    },
+
+    "fromAddress": "sender@email.com",
+    "fromName": "BuddyConnect",
+
+    "pathToEmailView": "JWTKeychain/Emails/resetPassword",
+    "pathToFormView": "JWTKeychain/ResetPassword/resetPassword",
+
+    "apiPathPrefix": "api/users",
+    "frontendPathPrefix": "users/reset-password",
+
+    "bCryptCost": 6
+}
+

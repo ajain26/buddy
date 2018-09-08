@@ -1,0 +1,39 @@
+#extend("AdminPanel/Layout/page")
+
+#export("title") { Terms and Conditions }
+
+#export("content-header") {
+<h1>Terms and Conditions</h1>
+}
+
+#export("breadcrumb") {
+<li class="active">Terms and Conditions</li>
+}
+
+#export("content") {
+
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        #box:open("Terms and Conditions", "primary")
+        #box:body() {
+
+            #if(termsandconditions) {
+                #form:open("/admin/backend/termsandconditions/#(termsandconditions.id)/edit", "post", "true")
+            } ##else() {
+                #form:open("/admin/backend/termsandconditions/store", "post", "true")
+            }
+
+            #form:textareagroup(fieldset.description, termsandconditions.description, "", "required")
+
+            #box:footer() {
+                <a href="/admin/backend/termsandconditions" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right ">
+                    #if(termsandconditions) { Save } ##else() { Create }
+                </button>
+            }
+        }
+        #form:close()
+        #box:close()
+    </div>
+</div>
+}

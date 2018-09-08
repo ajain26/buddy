@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Invitation to BuddyConnect</title>
+    </head>
+
+    <body>
+        <h4><strong>Hello</strong> #(name),</h4>
+        <p>You have been invited to join the App BuddyConnect.</p>
+        <p>Your invitation code: <strong>#(invitationCode)</strong> </p
+        <br>
+        <p>You will soon meet your Buddy with whom you'll download and set up the App!</p>
+        <br>
+        <p>
+            <strong>Best regards</strong>
+            <br>
+            <strong>Fujitsu-Team</strong>
+        </p>
+    </body>
+</html>

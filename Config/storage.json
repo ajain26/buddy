@@ -1,0 +1,9 @@
+{
+    "driver": "s3",
+    "bucket": "$AWS_S3_BUCKET",
+    "accessKey": "$AWS_ACCESS_KEY",
+    "secretKey": "$AWS_SECRET_KEY",
+    "host": "s3.amazonaws.com",
+    "cdnUrl": "$CDN_BASE_URL",
+    "template": "/buddyconnect-app/#mimeFolder/#uuid.#fileExtension"
+}

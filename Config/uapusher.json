@@ -1,0 +1,10 @@
+{
+    "applicationGroups": {
+        "defaultGroup": {
+            "staging": {
+                "appKey": "$UA_APP_KEY:_",
+                "masterSecret": "$UA_MASTER_SECRET:_"
+            }
+        }
+    }
+}

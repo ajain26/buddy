@@ -1,0 +1,8 @@
+#sidebar:header("Main navigation")
+
+#gate:allow(request.storage.auth-authenticated.role, "Admin") {
+    #sidebar:link("Backend Users", "/admin/backend/users", "fa fa-user", "/admin/backend/users*")
+    #sidebar:link("App Users", "/admin/backend/appusers", "fa fa-user", "/admin/backend/appusers*")
+    #sidebar:link("Terms & Conditions", "/admin/backend/termsandconditions", "fa fa-bank", "/admin/backend/termsandconditions*")
+    #sidebar:link("Useful Links", "/admin/backend/links", "fa fa-link", "/admin/backend/links*")
+}

@@ -1,0 +1,75 @@
+#extend("AdminPanel/Layout/page")
+
+#export("title") { App Users }
+
+#export("content-header") {
+<h1>Create App User</h1>
+}
+
+#export("breadcrumb") {
+<li><a href="/admin/backend/appusers">App Users</a></li>
+<li class="active">Create App User</li>
+}
+
+#export("content") {
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            #box:open("App User Details", "primary")
+            #box:body() {
+
+                #if(user) {
+                    #form:open("/admin/backend/appusers/#(user.id)/edit", "post", "true")
+                } ##else() {
+                    #form:open("/admin/backend/appusers/store", "post", "true")
+                }
+
+                #form:emailgroup(fieldset.email, user.email, "", "required")
+                #form:textgroup(fieldset.name, user.name, "", "required")
+                #form:textgroup(fieldset.phone, user.phone, "", "required")
+                #form:textgroup(fieldset.jobTitle, user.jobTitle, "", "required")
+                #if(roles) {
+                    <div class="form-group role-dropdown">
+                        <label>Role</label>
+                        <select class="form-control User" id="role" name="role">
+                            #loop(roles, "role") {
+                            <option value="#(role)">#(role)</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group senior-dropdown">
+                        <label>Select a Senior</label>
+                        <select class="form-control User" id="senior" name="seniorId">
+                            <option value="0">select a senior</option>
+                            #loop(users, "user") {
+                            <option value="#(user.id)">#(user.name)</option>
+                            }
+                        </select>
+                    </div>
+                }
+            }
+
+            #box:footer() {
+                <a href="/admin/backend/appusers" class="btn btn-default">Cancel</a>
+                <button type="submit" class="btn btn-primary pull-right ">
+                    #if(user) { Save } ##else() { Create }
+                </button>
+            }
+            #form:close()
+            #box:close()
+        </div>
+    </div>
+
+    <script>
+    $( document ).ready(function() {
+                            var roleDropdown = $('.role-dropdown select');
+                            roleDropdown.on("change", function() {
+                                            var value = roleDropdown.val();
+
+                                            var isVisible = value === "junior" ? true : false;
+                                            var seniorDropdown = $('.senior-dropdown');
+                                            isVisible ? seniorDropdown.removeClass("hidden") : seniorDropdown.addClass("hidden");
+                            });
+    });
+    </script>
+}

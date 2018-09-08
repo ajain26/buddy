@@ -1,0 +1,69 @@
+#extend("AdminPanel/Layout/page")
+
+#export("title") { Useful Links }
+
+#export("content-header") {
+<h1>Useful Links</h1>
+}
+
+#export("breadcrumb") {
+<li class="active">Useful Links</li>
+}
+
+#export("content") {
+<div class="layout horizontal center justified padding-vertical-sm">
+    <a href="/admin/backend/links/create" class="btn btn-primary pull-right">
+        <span class="fa fa-link"></span>
+        <span class="hidden-xs">Create Useful Link</span>
+    </a>
+</div>
+
+    #ifNotEmpty(links) {
+        <div class="row">
+            <div class="col-sm-12"><h1>Useful Links</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                    <div class="box-body table-responsive no-padding">
+                        <table class="table table-hover">
+                            <tbody>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>URL</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+
+                                #loop(links, "link") {
+                                    <tr>
+                                        <td>#(link.id)</td>
+                                        <td>#(link.title)</td>
+                                        <td>#(link.description)</td>
+                                        <td><a href="#(link.url)" target="_blank">#(link.url)</a></td>
+                                        <td>
+                                            <a href="/admin/backend/links/#(link.id)/edit" class="btn btn-sm btn-primary pull-right">
+                                                <span class="fa fa-edit"></span>
+                                                <span class="hidden-xs">Edit</span>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <form action="/admin/backend/links/#(link.id)/delete" method="POST">
+                                                <button type="submit" class="btn btn-sm btn-danger pull-right">
+                                                    <span class="fa fa-close"></span>
+                                                    <span class="hidden-xs">Delete</span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}

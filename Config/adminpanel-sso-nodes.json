@@ -1,0 +1,5 @@
+{
+    "redirectUrl": "$SSO_REDIRECT_URL:_",
+    "callbackPath": "$SSO_CALLBACK_PATH:_",
+    "salt": "$NODES_SSO_SALT:_"
+}
